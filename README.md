@@ -88,6 +88,10 @@ user is incremented by 1.
 
 The flowchart below illustrates the working of the system:
 
+
+![Flowchart](media/user_images/flow_chart.png "Flowchart of System Working")
+
+
 ## Conclusion
 
 The Facial Attendance System offers an efficient and automated solution for attendance
