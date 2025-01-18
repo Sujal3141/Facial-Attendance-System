@@ -1,0 +1,133 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8f9fa;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .navbar {
+            width: 100%;
+        }
+        .form-container {
+            background: #ffffff;
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        .form-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            text-align: center;
+            color: #495057;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Facial Attendance System</a>
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <!-- Home -->
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home Page</a>
+                    </li>
+                    <!-- New User -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="new_user">New User</a>
+                    </li>
+                    <!-- Dropdown -->
+                    <li class="nav-item dropdown">
+                        <a
+                            class="nav-link dropdown-toggle"
+                            href="#"
+                            role="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            More Options
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="view_profiles">Registered Users</a></li>
+                        </ul>
+                    </li>
+                    <!-- Disabled -->
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form -->
+    <div class="form-container">
+        <div class="form-header">Register</div>
+        <form class="row g-3" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="mb-2">
+                {{ form.user_id.label }}
+                {{ form.user_id }}
+            </div>
+            <div class="mb-2">
+                {{ form.user_name.label }}
+                {{ form.user_name }}
+            </div>
+            <div class="mb-2">
+                {{ form.user_email.label }}
+                {{ form.user_email }}
+            </div>
+            <div class="mb-2">
+                {{ form.user_city.label }}
+                {{ form.user_city }}
+            </div>
+            <div class="mb-2">
+                {{ form.user_zip_code.label }}
+                {{ form.user_zip_code }}
+            </div>
+            <div class="mb-2">
+                {{ form.user_phone_no.label }}
+                {{ form.user_phone_no }}
+            </div>
+            <div class="mb-3">
+                {{ form.user_img.label }}
+                {{ form.user_img }}
+            </div>
+            <div class="col-12 text-center">
+                <button type="submit" class="btn btn-primary btn-lg">Register</button>
+            </div>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="{% static 'js/bootstrap.bundle.min.js' %}" crossorigin="anonymous"></script>
+</body>
+</html>
